@@ -8,7 +8,7 @@ Syndicate News é um tema WordPress leve, moderno e modular, desenvolvido com Ta
 ## 📁 Estrutura do Projeto
 
 ```bash
-  syndicate-news/
+📁 Syndicate-news/
 ├── README.md                   # Documentação do tema
 ├── footer.php                  # Rodapé global
 ├── functions.php               # Inicialização, includes e funções principais
