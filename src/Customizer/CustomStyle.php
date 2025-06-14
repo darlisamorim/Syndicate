@@ -14,7 +14,7 @@ class CustomStyle {
      * Renderiza o estilo inline com base nas configurações do tema
      */
     public static function render() {
-        $primary = get_theme_mod('primary_color', '#111827');
+        $primary = get_theme_mod('syndicate_primary_color', '#111827');
 
         if (!empty($primary)) {
             echo '<style type="text/css">

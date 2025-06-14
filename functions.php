@@ -32,7 +32,7 @@ add_action('wp_enqueue_scripts', 'devdesenrolado_assets');
 
 // 🧩 Inclusão de arquivos do tema
 $includes = [
-    '/src/Setup/Assets.php',
+    '/src/Enqueue/Assets.php',
     '/src/Core/TemplateLoader.php',
     '/src/Customizer/ThemeCustomizer.php',
     '/src/Customizer/CustomStyle.php',
