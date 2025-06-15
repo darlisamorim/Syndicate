@@ -26,3 +26,9 @@ msgstr "No publication"
 
 msgid "Nenhuma publicação encontrada."
 msgstr "No publication found."
+
+msgid "Nenhum widget disponível."
+msgstr "No widgets available."
+
+msgid "Siga-Nos"
+msgstr "Follow us"

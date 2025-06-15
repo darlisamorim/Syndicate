@@ -26,3 +26,9 @@ msgstr "Nenhuma publicação"
 
 msgid "Nenhuma publicação encontrada."
 msgstr "Nenhuma publicação encontrada."
+
+msgid "Nenhum widget disponível."
+msgstr "Nenhum widget disponível."
+
+msgid "Siga-Nos"
+msgstr "Siga-Nos"
