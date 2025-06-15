@@ -53,6 +53,30 @@ class ThemeCustomizer {
             'section' => 'syndicate_typography',
             'type'    => 'text',
         ]);
+
+        /**
+         * 🌐 Seção de Idioma do Tema
+         */
+        $wp_customize->add_section('syndicate_language', [
+            'title'    => __('Idioma do Tema', 'syndicate'),
+            'priority' => 40,
+        ]);
+
+        $wp_customize->add_setting('syndicate_language', [
+            'default'   => 'pt_BR',
+            'transport' => 'refresh',
+        ]);
+
+        $wp_customize->add_control('syndicate_language_control', [
+            'label'   => __('Escolha o idioma do tema:', 'syndicate'),
+            'section' => 'syndicate_language',
+            'settings'=> 'syndicate_language',
+            'type'    => 'select',
+            'choices' => [
+                'pt_BR' => '🇧🇷 Português',
+                'en_US' => '🇺🇸 English',
+            ],
+        ]);
     }
 
     /**

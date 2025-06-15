@@ -11,7 +11,7 @@
 $categories = get_categories(['orderby' => 'name', 'order' => 'ASC']);
 
 if (!empty($categories)) : ?>
-    <div class="bg-gray-100 py-3 border-b border-gray-200">
+    <div class="bg-gray-100 py-3 border-b border-gray-200" role="navigation" aria-label="<?php echo esc_attr__('Categorias principais', 'syndicate'); ?>">
         <div class="container mx-auto px-4 flex flex-wrap gap-3 text-sm font-medium">
             <?php foreach ($categories as $category) : ?>
                 <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>"

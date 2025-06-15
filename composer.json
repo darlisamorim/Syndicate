@@ -1,0 +1,20 @@
+{
+    "name": "darlis/syndicate",
+    "description": "Tema WordPress moderno com suporte a tradução",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Darlis\\Syndicate\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Darlis A. Amorim",
+            "email": "eu@darlisamorim.dev"
+        }
+    ],
+    "require": {},
+    "scripts": {
+        "make-pot": "wp i18n make-pot ./ ./languages/syndicate.pot --slug=syndicate"
+    }
+}

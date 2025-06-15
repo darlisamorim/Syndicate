@@ -12,7 +12,12 @@ get_header(); ?>
 <main class="max-w-6xl mx-auto px-4 py-10">
     <header class="mb-10">
         <h1 class="text-3xl font-bold text-gray-900">
-            Resultados da busca por: "<?php echo get_search_query(); ?>"
+            <?php
+            printf(
+                esc_html__('Resultados da busca por: "%s"', 'syndicate'),
+                get_search_query()
+            );
+            ?>
         </h1>
     </header>
 
@@ -24,7 +29,7 @@ get_header(); ?>
                         <?php if (has_post_thumbnail()) : ?>
                             <img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php the_title_attribute(); ?>" class="w-full h-48 object-cover">
                         <?php else : ?>
-                            <img src="<?php echo get_template_directory_uri(); ?>/resources/images/notfound.png" alt="Imagem não disponível" class="w-full h-48 object-cover">
+                            <img src="<?php echo get_template_directory_uri(); ?>/resources/images/notfound.png" alt="<?php echo esc_attr__('Imagem não disponível', 'syndicate'); ?>" class="w-full h-48 object-cover">
                         <?php endif; ?>
                         <div class="p-4">
                             <h2 class="text-lg font-semibold text-gray-800"><?php the_title(); ?></h2>
@@ -37,14 +42,21 @@ get_header(); ?>
 
         <div class="mt-10">
             <?php the_posts_navigation([
-                'prev_text' => '&larr; Resultados anteriores',
-                'next_text' => 'Próximos resultados &rarr;',
+                'prev_text' => esc_html__('&larr; Resultados anteriores', 'syndicate'),
+                'next_text' => esc_html__('Próximos resultados &rarr;', 'syndicate'),
             ]); ?>
         </div>
     <?php else : ?>
         <div class="text-center mt-10">
-            <img src="<?php echo get_template_directory_uri(); ?>/resources/images/notfound.png" alt="Nada encontrado" class="mx-auto w-40 h-40 opacity-60 mb-6">
-            <p class="text-gray-600">Nenhum resultado encontrado para "<?php echo get_search_query(); ?>".</p>
+            <img src="<?php echo get_template_directory_uri(); ?>/resources/images/notfound.png" alt="<?php echo esc_attr__('Nada encontrado', 'syndicate'); ?>" class="mx-auto w-40 h-40 opacity-60 mb-6">
+            <p class="text-gray-600">
+                <?php
+                printf(
+                    esc_html__('Nenhum resultado encontrado para "%s".', 'syndicate'),
+                    get_search_query()
+                );
+                ?>
+            </p>
         </div>
     <?php endif; ?>
 </main>

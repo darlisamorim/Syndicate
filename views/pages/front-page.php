@@ -13,7 +13,7 @@ get_header(); ?>
 
     <!-- 📰 Destaque principal -->
     <section class="mb-12">
-        <h2 class="text-2xl font-bold mb-4">Destaque</h2>
+        <h2 class="text-2xl font-bold mb-4"><?php echo esc_html__('Destaque', 'syndicate'); ?></h2>
 
         <?php
         $featured = new WP_Query([
@@ -27,13 +27,15 @@ get_header(); ?>
             <?php endwhile;
             wp_reset_postdata();
         else : ?>
-            <img src="<?php echo get_template_directory_uri(); ?>/resources/images/notfound.png" alt="Sem destaque" class="w-full h-64 object-cover rounded">
+            <img src="<?php echo get_template_directory_uri(); ?>/resources/images/notfound.png"
+                 alt="<?php echo esc_attr__('Sem destaque', 'syndicate'); ?>"
+                 class="w-full h-64 object-cover rounded">
         <?php endif; ?>
     </section>
 
     <!-- 🗞️ Últimas notícias -->
     <section class="mb-12">
-        <h2 class="text-2xl font-bold mb-4">Últimas Notícias</h2>
+        <h2 class="text-2xl font-bold mb-4"><?php echo esc_html__('Últimas Notícias', 'syndicate'); ?></h2>
 
         <div class="grid gap-6 md:grid-cols-2">
             <?php
@@ -48,7 +50,9 @@ get_header(); ?>
                 <?php endwhile;
                 wp_reset_postdata();
             else : ?>
-                <img src="<?php echo get_template_directory_uri(); ?>/resources/images/notfound.png" alt="Sem notícias" class="w-full h-64 object-cover rounded">
+                <img src="<?php echo get_template_directory_uri(); ?>/resources/images/notfound.png"
+                     alt="<?php echo esc_attr__('Sem notícias', 'syndicate'); ?>"
+                     class="w-full h-64 object-cover rounded">
             <?php endif; ?>
         </div>
     </section>
@@ -60,7 +64,7 @@ get_header(); ?>
 
     <!-- 🧠 Categoria: Tecnologia -->
     <section class="mb-12">
-        <h2 class="text-2xl font-bold mb-4">Tecnologia</h2>
+        <h2 class="text-2xl font-bold mb-4"><?php echo esc_html__('Tecnologia', 'syndicate'); ?></h2>
 
         <div class="grid gap-6 md:grid-cols-3">
             <?php
@@ -75,7 +79,9 @@ get_header(); ?>
                 <?php endwhile;
                 wp_reset_postdata();
             else : ?>
-                <img src="<?php echo get_template_directory_uri(); ?>/resources/images/notfound.png" alt="Sem posts em tecnologia" class="w-full h-48 object-cover rounded">
+                <img src="<?php echo get_template_directory_uri(); ?>/resources/images/notfound.png"
+                     alt="<?php echo esc_attr__('Sem posts em tecnologia', 'syndicate'); ?>"
+                     class="w-full h-48 object-cover rounded">
             <?php endif; ?>
         </div>
     </section>

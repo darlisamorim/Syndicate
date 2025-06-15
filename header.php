@@ -34,7 +34,7 @@
         <?php endif; ?>
 
         <!-- Navegação principal -->
-        <nav class="text-sm">
+        <nav class="text-sm" aria-label="<?php echo esc_attr__('Menu principal', 'syndicate'); ?>">
             <?php
             wp_nav_menu([
                 'theme_location' => 'main-menu',

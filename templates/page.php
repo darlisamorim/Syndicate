@@ -2,7 +2,7 @@
 /**
  * Templates: Page
  * Local: templates/page.php
- * Description: Exibe o conteúdo de uma página estática..
+ * Description: Exibe o conteúdo de uma página estática.
  *
  * @package Syndicate
  */
@@ -21,7 +21,7 @@ get_header(); ?>
             </div>
         </article>
     <?php endwhile; else : ?>
-        <p class="text-gray-600 text-center">Conteúdo não encontrado.</p>
+        <p class="text-gray-600 text-center"><?php echo esc_html__('Conteúdo não encontrado.', 'syndicate'); ?></p>
     <?php endif; ?>
 </main>
 

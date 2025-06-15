@@ -19,12 +19,12 @@ get_header(); ?>
             <!-- Paginação -->
             <div class="mt-10">
                 <?php the_posts_pagination([
-                    'prev_text' => '&larr; Anteriores',
-                    'next_text' => 'Próximos &rarr;',
+                    'prev_text' => esc_html__('&larr; Anteriores', 'syndicate'),
+                    'next_text' => esc_html__('Próximos &rarr;', 'syndicate'),
                 ]); ?>
             </div>
         <?php else : ?>
-            <p class="text-gray-600">Nenhum post encontrado.</p>
+            <p class="text-gray-600"><?php echo esc_html__('Nenhum post encontrado.', 'syndicate'); ?></p>
         <?php endif; ?>
     </section>
 

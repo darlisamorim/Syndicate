@@ -1,7 +1,7 @@
 # Syndicate News - Tema WordPress Moderno com TailwindCSS
 
 **Versão:** 1.0.0  
-**Compatibilidade:** WordPress 6+ | PHP 8.0+
+**Compatibilidade:** WordPress **6+** **|** PHP **8+**
 
 Syndicate News é um tema WordPress leve, moderno e modular, desenvolvido com Tailwind CSS. Ideal para portais de notícias, blogs ou revistas digitais, combina performance com uma estrutura altamente personalizável e limpa.
 
@@ -72,38 +72,43 @@ Syndicate News é um tema WordPress leve, moderno e modular, desenvolvido com Ta
 
 ## 🎨 Customização
 
-Você pode modificar facilmente:
+Você pode modificar facilmente os seguintes itens:
 
-- **Cores** via **Aparência > Personalizar > Cores do Tema**
-- **Tipografia** via **Aparência > Personalizar > Tipografia**
-- **Imagens de fallback/publicidade** na pasta `/resources/images/`
-- **Menus e navegação** via painel ou em `functions.php` e `views/components/nav.php`
-- **Conteúdo e layout da página inicial** no `front-page.php` (em breve)
-- **Texto do rodapé** em **Aparência > Configurações do Tema**
+- **Cores do tema**
+- **Tipografia**
+- **Texto do rodapé**
+- **Menus e navegação**
+- **Imagens de fallback e publicidade** (localizadas em `/resources/images/`)
+- **Conteúdo e layouts pré-prontos**
+- **Suporte a tradução multilíngue**
+
+> Todas essas opções podem ser configuradas diretamente no painel WordPress:  
+> **Aparência > Personalizar** ou **Aparência > Configurações do Tema**
 
 ## 🔧 Tecnologias utilizadas
 
 - **WordPress** com arquitetura baseada em pastas modulares
 - **TailwindCSS** para estilização
 - **HTML5 + PHP8** com boas práticas
-- Estrutura MVC-like adaptada para temas WordPress
+- **Estrutura MVC** adaptada para temas WordPress
 
 ## 🛠️ Requisitos
 
-- PHP 8.0 ou superior
-- WordPress 6 ou superior
-- Tailwind já compilado (disponível em `/resources/css/`)
+- PHP **8.+** ou **superior**
+- WordPress **6.+** ou **superior**
+- Tailwind já compilado **(localizado em `/resources/css/`)**
 
 ## 📦 Releases
 
 - **v1.0.0** – Estrutura base com layout moderno, suporte a Customizer, widgets, fallback de imagem e navegação entre posts.
 
-📌 Planejamento de futuras versões incluirão suporte completo a:
+---
+
+## 📌 Planejamento p/ próximas versões:
 - 🧩 Suporte Dark Mode
 - 🔎 Pesquisa AJAX
 - 📝 Modo Escritor para artigos longos
 - 📱 Otimizações AMP e PWA
-- 🌍 Tradução multilíngue e suporte RTL
 - ⚙️ Blocos dinâmicos
 - ⚙️ Templates de página personalizada
 

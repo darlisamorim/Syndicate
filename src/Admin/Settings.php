@@ -20,8 +20,8 @@ class Settings {
      */
     public static function add_settings_page() {
         add_theme_page(
-            __('Configurações do Tema', 'devdesenrolado'),
-            __('Configurações do Tema', 'devdesenrolado'),
+            __('Configurações do Tema', 'syndicate'),
+            __('Configurações do Tema', 'syndicate'),
             'edit_theme_options',
             'syndicate-theme-settings',
             [self::class, 'render_settings_page']
@@ -36,14 +36,14 @@ class Settings {
 
         add_settings_section(
             'syndicate_general_section',
-            __('Geral', 'devdesenrolado'),
+            __('Geral', 'syndicate'),
             null,
             'syndicate-theme-settings'
         );
 
         add_settings_field(
             'footer_text',
-            __('Texto do Rodapé', 'devdesenrolado'),
+            __('Texto do Rodapé', 'syndicate'),
             [self::class, 'footer_text_field'],
             'syndicate-theme-settings',
             'syndicate_general_section'
@@ -54,7 +54,8 @@ class Settings {
      * Campo de entrada do texto do rodapé
      */
     public static function footer_text_field() {
-        $value = esc_attr(get_option('syndicate_footer_text', '© ' . date('Y') . ' - Todos os direitos reservados.'));
+        $default_text = sprintf('© %s - %s', date('Y'), __('Todos os direitos reservados.', 'syndicate'));
+        $value = esc_attr(get_option('syndicate_footer_text', $default_text));
         echo '<input type="text" name="syndicate_footer_text" class="regular-text" value="' . $value . '">';
     }
 
@@ -64,7 +65,7 @@ class Settings {
     public static function render_settings_page() {
         ?>
         <div class="wrap">
-            <h1><?php _e('Configurações do Tema', 'devdesenrolado'); ?></h1>
+            <h1><?php _e('Configurações do Tema', 'syndicate'); ?></h1>
             <form method="post" action="options.php">
                 <?php
                 settings_fields('syndicate_theme_settings_group');

@@ -31,7 +31,7 @@ get_header(); ?>
                         <?php else : ?>
                             <img
                                     src="<?php echo get_template_directory_uri(); ?>/resources/images/notfound.png"
-                                    alt="Imagem não disponível"
+                                    alt="<?php echo esc_attr__('Imagem não disponível', 'syndicate'); ?>"
                                     class="w-full h-48 object-cover">
                         <?php endif; ?>
 
@@ -46,15 +46,20 @@ get_header(); ?>
 
         <!-- Paginação -->
         <div class="mt-10">
-            <?php the_posts_navigation([
-                'prev_text' => '&larr; Publicações anteriores',
-                'next_text' => 'Próximas publicações &rarr;',
-            ]); ?>
+            <?php
+            the_posts_navigation([
+                'prev_text' => esc_html__('&larr; Publicações anteriores', 'syndicate'),
+                'next_text' => esc_html__('Próximas publicações &rarr;', 'syndicate'),
+            ]);
+            ?>
         </div>
     <?php else : ?>
         <div class="text-center mt-12">
-            <img src="<?php echo get_template_directory_uri(); ?>/resources/images/notfound.png" alt="Nenhuma publicação" class="mx-auto w-32 h-32 mb-4 opacity-60">
-            <p class="text-gray-600">Nenhuma publicação encontrada.</p>
+            <img
+                    src="<?php echo get_template_directory_uri(); ?>/resources/images/notfound.png"
+                    alt="<?php echo esc_attr__('Nenhuma publicação', 'syndicate'); ?>"
+                    class="mx-auto w-32 h-32 mb-4 opacity-60">
+            <p class="text-gray-600"><?php echo esc_html__('Nenhuma publicação encontrada.', 'syndicate'); ?></p>
         </div>
     <?php endif; ?>
 </main>

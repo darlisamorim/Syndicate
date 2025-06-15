@@ -12,7 +12,12 @@ get_header(); ?>
 <main class="max-w-6xl mx-auto px-4 py-10">
     <header class="mb-10">
         <h1 class="text-3xl font-bold text-gray-900">
-            Autor: <?php the_author(); ?>
+            <?php
+            printf(
+                esc_html__('Autor: %s', 'syndicate'),
+                get_the_author()
+            );
+            ?>
         </h1>
         <p class="text-gray-600 mt-2"><?php the_author_meta('description'); ?></p>
     </header>
@@ -25,7 +30,7 @@ get_header(); ?>
                         <?php if (has_post_thumbnail()) : ?>
                             <img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php the_title_attribute(); ?>" class="w-full h-48 object-cover">
                         <?php else : ?>
-                            <img src="<?php echo get_template_directory_uri(); ?>/resources/images/notfound.png" alt="Imagem não disponível" class="w-full h-48 object-cover">
+                            <img src="<?php echo get_template_directory_uri(); ?>/resources/images/notfound.png" alt="<?php echo esc_attr__('Imagem não disponível', 'syndicate'); ?>" class="w-full h-48 object-cover">
                         <?php endif; ?>
 
                         <div class="p-4">
@@ -39,15 +44,17 @@ get_header(); ?>
 
         <!-- Paginação -->
         <div class="mt-10">
-            <?php the_posts_navigation([
-                'prev_text' => '&larr; Publicações anteriores',
-                'next_text' => 'Próximas publicações &rarr;',
-            ]); ?>
+            <?php
+            the_posts_navigation([
+                'prev_text' => esc_html__('&larr; Publicações anteriores', 'syndicate'),
+                'next_text' => esc_html__('Próximas publicações &rarr;', 'syndicate'),
+            ]);
+            ?>
         </div>
     <?php else : ?>
         <div class="text-center mt-12">
-            <img src="<?php echo get_template_directory_uri(); ?>/resources/images/notfound.png" alt="Nenhuma publicação" class="mx-auto w-32 h-32 mb-4 opacity-60">
-            <p class="text-gray-600">Nenhuma publicação encontrada.</p>
+            <img src="<?php echo get_template_directory_uri(); ?>/resources/images/notfound.png" alt="<?php echo esc_attr__('Nenhuma publicação', 'syndicate'); ?>" class="mx-auto w-32 h-32 mb-4 opacity-60">
+            <p class="text-gray-600"><?php echo esc_html__('Nenhuma publicação encontrada.', 'syndicate'); ?></p>
         </div>
     <?php endif; ?>
 </main>

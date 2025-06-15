@@ -17,7 +17,13 @@ get_header(); ?>
             <header class="mb-6 border-b pb-4">
                 <h1 class="text-4xl font-bold text-gray-900 leading-tight"><?php the_title(); ?></h1>
                 <p class="text-sm text-gray-500 mt-2">
-                    Publicado em <?php echo get_the_date(); ?> por <?php the_author(); ?>
+                    <?php
+                    printf(
+                        esc_html__('Publicado em %s por %s', 'syndicate'),
+                        get_the_date(),
+                        get_the_author()
+                    );
+                    ?>
                 </p>
             </header>
 
@@ -26,7 +32,7 @@ get_header(); ?>
                 <?php if (has_post_thumbnail()) : ?>
                     <img src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php the_title_attribute(); ?>" class="w-full rounded-lg shadow">
                 <?php else : ?>
-                    <img src="<?php echo get_template_directory_uri(); ?>/resources/images/notfound.png" alt="Imagem não disponível" class="w-full rounded-lg shadow">
+                    <img src="<?php echo get_template_directory_uri(); ?>/resources/images/notfound.png" alt="<?php echo esc_attr__('Imagem não disponível', 'syndicate'); ?>" class="w-full rounded-lg shadow">
                 <?php endif; ?>
             </div>
 
@@ -45,13 +51,17 @@ get_header(); ?>
         if ($prev_post || $next_post) : ?>
             <nav class="flex justify-between items-center mt-12 border-t pt-6 text-sm text-blue-600">
                 <?php if ($prev_post) : ?>
-                    <a href="<?php echo get_permalink($prev_post); ?>" class="hover:underline">&larr; <?php echo get_the_title($prev_post); ?></a>
+                    <a href="<?php echo get_permalink($prev_post); ?>" class="hover:underline">
+                        <?php printf(esc_html__('&larr; %s', 'syndicate'), get_the_title($prev_post)); ?>
+                    </a>
                 <?php else : ?>
                     <span></span>
                 <?php endif; ?>
 
                 <?php if ($next_post) : ?>
-                    <a href="<?php echo get_permalink($next_post); ?>" class="hover:underline"><?php echo get_the_title($next_post); ?> &rarr;</a>
+                    <a href="<?php echo get_permalink($next_post); ?>" class="hover:underline">
+                        <?php printf(esc_html__('%s &rarr;', 'syndicate'), get_the_title($next_post)); ?>
+                    </a>
                 <?php else : ?>
                     <span></span>
                 <?php endif; ?>

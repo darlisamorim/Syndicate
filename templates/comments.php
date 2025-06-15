@@ -18,7 +18,7 @@ if (post_password_required()) {
             <?php
             $comment_count = get_comments_number();
             printf(
-                _n('Um comentário', '%s comentários', $comment_count, 'devdesenrolado'),
+                esc_html(_n('Um comentário', '%s comentários', $comment_count, 'syndicate')),
                 number_format_i18n($comment_count)
             );
             ?>
@@ -37,15 +37,19 @@ if (post_password_required()) {
 
         <?php if (get_comment_pages_count() > 1 && get_option('page_comments')) : ?>
             <nav class="comment-navigation mt-6">
-                <div class="nav-previous"><?php previous_comments_link('&larr; Comentários anteriores'); ?></div>
-                <div class="nav-next"><?php next_comments_link('Próximos comentários &rarr;'); ?></div>
+                <div class="nav-previous">
+                    <?php previous_comments_link(esc_html__('&larr; Comentários anteriores', 'syndicate')); ?>
+                </div>
+                <div class="nav-next">
+                    <?php next_comments_link(esc_html__('Próximos comentários &rarr;', 'syndicate')); ?>
+                </div>
             </nav>
         <?php endif; ?>
     <?php endif; ?>
 
     <?php
     if (!comments_open()) :
-        echo '<p class="text-sm text-gray-500">Os comentários estão fechados.</p>';
+        echo '<p class="text-sm text-gray-500">' . esc_html__('Os comentários estão fechados.', 'syndicate') . '</p>';
     endif;
     ?>
 
