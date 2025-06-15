@@ -1,0 +1,28 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: en_US\n"
+
+msgid "Nenhum post encontrado."
+msgstr "No posts found."
+
+msgid "&larr; Anteriores"
+msgstr "&larr; Previous"
+
+msgid "Próximos &rarr;"
+msgstr "Next &rarr;"
+
+msgid "Imagem não disponível"
+msgstr "Image not available"
+
+msgid "&larr; Publicações anteriores"
+msgstr "&larr; Older posts"
+
+msgid "Próximas publicações &rarr;"
+msgstr "Newer posts &rarr;"
+
+msgid "Nenhuma publicação"
+msgstr "No publication"
+
+msgid "Nenhuma publicação encontrada."
+msgstr "No publication found."
