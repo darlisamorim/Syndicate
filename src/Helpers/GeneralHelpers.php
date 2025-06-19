@@ -45,4 +45,38 @@ class GeneralHelpers {
 
         return '';
     }
+
+    /**
+     * Imprime as tags hreflang para SEO multilíngue com base no Polylang.
+     *
+     * @return void
+     */
+    public static function print_hreflang_tags() {
+        if (!function_exists('pll_get_the_languages')) {
+            return;
+        }
+
+        $languages = pll_get_the_languages(['raw' => 1]);
+
+        foreach ($languages as $lang) {
+            $locale = esc_attr(str_replace('_', '-', $lang['locale']));
+            $url    = esc_url($lang['url']);
+            echo "<link rel=\"alternate\" hreflang=\"{$locale}\" href=\"{$url}\">\n";
+        }
+    }
+
+    /**
+     * Traduz texto com suporte a Polylang, ou usa esc_html__ como fallback.
+     *
+     * @param string $text Texto a traduzir.
+     * @param string $domain Domínio de tradução (padrão: 'syndicate').
+     * @return string Texto traduzido com escape seguro.
+     */
+    public static function translate($text, $domain = 'syndicate') {
+        if (function_exists('pll__')) {
+            return pll__($text);
+        }
+
+        return esc_html__($text, $domain);
+    }
 }

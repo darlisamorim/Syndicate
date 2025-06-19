@@ -2,11 +2,12 @@
 /**
  * Source/: Footer
  * Local: S/footer.php
- * Description: Rodapé do tema
+ * Description: Rodapé do tema com suporte multilíngue via widgets
  *
  * @package Syndicate
  */
 ?>
+
 <footer class="bg-white border-t mt-12 py-10 text-sm text-gray-600">
     <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
 
@@ -18,34 +19,26 @@
             <p><?php bloginfo('description'); ?></p>
         </div>
 
-        <!-- Navegação do rodapé -->
+        <!-- Widgets do rodapé (dinâmicos por idioma) -->
         <div>
-            <h3 class="text-base font-semibold text-black mb-2">
-                <?php echo esc_html__('Navegação', 'syndicate'); ?>
-            </h3>
-            <ul class="space-y-1">
-                <li>
-                    <a href="<?php echo esc_url(home_url('/sobre')); ?>" class="hover:underline">
-                        <?php echo esc_html__('Sobre', 'syndicate'); ?>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?php echo esc_url(home_url('/contato')); ?>" class="hover:underline">
-                        <?php echo esc_html__('Contato', 'syndicate'); ?>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?php echo esc_url(home_url('/politica-de-privacidade')); ?>" class="hover:underline">
-                        <?php echo esc_html__('Política de Privacidade', 'syndicate'); ?>
-                    </a>
-                </li>
-            </ul>
+            <?php
+            // Detecta idioma com suporte ao Customizer
+            $lang = function_exists('pll_current_language') ? pll_current_language() : 'pt';
+
+            if ($lang === 'pt' && is_active_sidebar('footer_pt')) {
+                dynamic_sidebar('footer_pt');
+            } elseif ($lang === 'en' && is_active_sidebar('footer_en')) {
+                dynamic_sidebar('footer_en');
+            } else {
+                echo '<p>' . esc_html__('Nenhum widget disponível.', 'syndicate') . '</p>';
+            }
+            ?>
         </div>
 
         <!-- Redes sociais -->
         <div>
             <h3 class="text-base font-semibold text-black mb-2">
-                <?php echo esc_html__('Siga nas redes', 'syndicate'); ?>
+                <?php echo esc_html__('Siga-Nos', 'syndicate'); ?>
             </h3>
             <ul class="flex space-x-4">
                 <li><a href="#" class="hover:text-black" aria-label="<?php echo esc_attr__('Facebook', 'syndicate'); ?>"><i class="fab fa-facebook-f"></i></a></li>
@@ -54,7 +47,6 @@
                 <li><a href="#" class="hover:text-black" aria-label="<?php echo esc_attr__('YouTube', 'syndicate'); ?>"><i class="fab fa-youtube"></i></a></li>
             </ul>
         </div>
-
     </div>
 
     <div class="text-center mt-10 text-xs text-gray-500">

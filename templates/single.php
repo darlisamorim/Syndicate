@@ -30,9 +30,9 @@ get_header(); ?>
             <!-- Imagem destacada ou fallback -->
             <div class="mb-6">
                 <?php if (has_post_thumbnail()) : ?>
-                    <img src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php the_title_attribute(); ?>" class="w-full rounded-lg shadow">
+                    <img src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="w-full rounded-lg shadow" loading="lazy">
                 <?php else : ?>
-                    <img src="<?php echo get_template_directory_uri(); ?>/resources/images/notfound.png" alt="<?php echo esc_attr__('Imagem não disponível', 'syndicate'); ?>" class="w-full rounded-lg shadow">
+                    <img src="<?php echo get_template_directory_uri(); ?>/resources/images/notfound.png" alt="<?php echo esc_attr__('Imagem não disponível', 'syndicate'); ?>" class="w-full rounded-lg shadow" loading="lazy">
                 <?php endif; ?>
             </div>
 
@@ -52,7 +52,7 @@ get_header(); ?>
             <nav class="flex justify-between items-center mt-12 border-t pt-6 text-sm text-blue-600">
                 <?php if ($prev_post) : ?>
                     <a href="<?php echo get_permalink($prev_post); ?>" class="hover:underline">
-                        <?php printf(esc_html__('&larr; %s', 'syndicate'), get_the_title($prev_post)); ?>
+                        <?php printf(esc_html__('Post anterior: %s', 'syndicate'), get_the_title($prev_post)); ?>
                     </a>
                 <?php else : ?>
                     <span></span>
@@ -60,7 +60,7 @@ get_header(); ?>
 
                 <?php if ($next_post) : ?>
                     <a href="<?php echo get_permalink($next_post); ?>" class="hover:underline">
-                        <?php printf(esc_html__('%s &rarr;', 'syndicate'), get_the_title($next_post)); ?>
+                        <?php printf(esc_html__('Próximo post: %s', 'syndicate'), get_the_title($next_post)); ?>
                     </a>
                 <?php else : ?>
                     <span></span>
@@ -69,6 +69,17 @@ get_header(); ?>
         <?php endif; ?>
 
     <?php endwhile; endif; ?>
+
+    <!-- Botões de compartilhamento -->
+    <div class="mt-6">
+        <?php include(locate_template('views/components/share-buttons.php')); ?>
+    </div>
+
+    <!-- Seção de comentários -->
+    <div class="mt-10">
+        <?php comments_template(); ?>
+    </div>
+
 </main>
 
 <?php get_footer(); ?>

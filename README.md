@@ -78,9 +78,9 @@ Você pode modificar facilmente os seguintes itens:
 - **Tipografia**
 - **Texto do rodapé**
 - **Menus e navegação**
-- **Imagens de fallback e publicidade** (localizadas em `/resources/images/`)
+- **Imagens de fallback e publicidade** (Localizadas em `/resources/images/`)
 - **Conteúdo e layouts pré-prontos**
-- **Suporte a tradução multilíngue**
+- **Suporte a tradução multilíngue** (Documentação em `/docs/MULTILANG.md`)
 
 > Todas essas opções podem ser configuradas diretamente no painel WordPress:  
 > **Aparência > Personalizar** ou **Aparência > Configurações do Tema**
@@ -127,4 +127,4 @@ Este projeto está licenciado sob a [Licença MIT](LICENSE).
 ## 👤 Author
 
 **Darlis A. Amorim**  
-*Software Engineer and Full Stack Developer of São Paulo/SP*
+*Software Engineer and Full Stack Developer of São Paulo/SP.*
